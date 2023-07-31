@@ -1,0 +1,17 @@
+version: '3'
+services:
+  networkmonitor:
+    container_name: "networkmonitor"
+    image: "networkmonitor:0.1.0"
+    volumes:
+      - ${DATA_DIR}:/monitor/data
+      - ${CONFIG_DIR}:/monitor/config
+      - ${LOGS_DIR}:/monitor/logs
+    environment:
+      - MAIL_HOST=${MAIL_HOST}
+      - MAIL_USER=${MAIL_USER}
+      - MAIL_PASSWORD=${MAIL_PASSWORD}
+      - MAIL_FROM=${MAIL_FROM}
+      - MAIL_TO=${MAIL_TO}
+    ports:
+      - 48080:80
