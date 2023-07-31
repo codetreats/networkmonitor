@@ -32,7 +32,7 @@ assert_var "MAIL_HOST not set" $MAIL_HOST
 assert_var "MAIL_USER not set" $MAIL_USER
 assert_var "MAIL_PASSWORD not set" $MAIL_PASSWORD
 assert_var "MAIL_FROM not set" $MAIL_FROM
-assert_var "MAIL_TO not set" $DATAMAIL_TO_DIR
+assert_var "MAIL_TO not set" $MAIL_TO
 
 # remove old container
 if [[ $(docker ps -q --filter "name=networkmonitor"  | wc -l) -gt 0 ]]
