@@ -9,7 +9,7 @@ namespace ServerMonitor
 {
     class Program
     {
-        public static readonly bool DEBUG = true;
+        public static readonly bool DEBUG = false;
 
         static void Main(string[] args)
         {
