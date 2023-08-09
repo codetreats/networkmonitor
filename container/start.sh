@@ -3,6 +3,9 @@ WAIT_DURATION=1800
 
 chmod +x /*.sh
 ./compile.sh
+echo "<?php" > /var/www/html/update/inc/timezone.inc.php
+echo "date_default_timezone_set('$TZ');" >> /var/www/html/update/inc/timezone.inc.php
+echo "?>" >> /var/www/html/update/inc/timezone.inc.php
 service apache2 start
 
 LAST_EXECUTION=0
