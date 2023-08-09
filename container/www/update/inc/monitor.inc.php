@@ -1,5 +1,7 @@
 <?php
 
+require_once("timezone.inc.php");
+
 function update($src,$val,$level) {
   $rootdir = "/monitor/data";
   $date = new DateTime();
