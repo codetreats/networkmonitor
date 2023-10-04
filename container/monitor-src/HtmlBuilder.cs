@@ -168,6 +168,8 @@ namespace ServerMonitor
             {
                 append("<a href='index.html'><img src='home.png' alt='Home'></a>", 0);
                 append("<a href='" + parent + ".html'><img src='back.png' alt='Zurueck'></a>", 0);
+            } else {
+                append("<a href='pipeline/index.html'><img src='home.png' alt='Pipeline'></a>", 0);
             }
             
             append("<a href='" + name + ".html'><h1>" + title + "</h1></a>", 0);

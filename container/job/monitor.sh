@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 ##############################################################
 LOCAL=/monitor
 DATADIR=$LOCAL/data/
@@ -21,6 +22,7 @@ do
 done
 
 ###################### Generate output  ######################
+echo "Run Monitor-Builder"
 /usr/bin/mono /bin/monitor.exe $LOCAL $HTML $LOGDIR
 /usr/bin/tail -n 1000 $LOGDIR/monitor.log | /usr/bin/tac | sed 's/$/<br>/' > $HTML/log.html
 
@@ -40,4 +42,7 @@ cat $LOCAL/mail/subject.txt > $LOCAL/status.txt
 echo "" >> $LOCAL/status.txt
 cat $LOCAL/mail/message.txt >> $LOCAL/status.txt
 
-/usr/bin/php /mail.php "$SUBJECT" "$TEXT"
+echo "Send Mail: $SUBJECT"
+/usr/bin/php /pipeline/src/mail.php "$SUBJECT" "$TEXT"
+
+echo "Done"

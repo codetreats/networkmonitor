@@ -1,13 +1,12 @@
-FROM mono:6.12.0.182
-RUN apt-get update && apt-get install -q -y apache2 php libapache2-mod-php php-cli php-common nano
+FROM codetreats/simple-pipeline:0.8.1
+RUN apt-get update && apt-get install -q -y mono-complete
 RUN mkdir -p /bin /monitor/mail /monitor/data /monitor/config /monitor/logs
 RUN touch /monitor/logs/monitor.log
 COPY www/ /var/www/html/
-COPY src/ /src
+COPY monitor-src/ /monitor-src
+COPY pipeline/ /pipeline/src
+COPY job/ /job
 COPY default.cfg /monitor/
-COPY compile.sh /compile.sh
-COPY monitor.sh /monitor.sh
-COPY start.sh /start.sh
-COPY mail.php /mail.php
-
+RUN echo "30 18 * * * root /trigger.sh" > /etc/cron.d/cronjob
 CMD ["/start.sh"]
+

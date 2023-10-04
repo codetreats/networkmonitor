@@ -2,18 +2,20 @@ version: '3'
 services:
   networkmonitor:
     container_name: "networkmonitor"
-    image: "networkmonitor:0.1.0"
+    image: "networkmonitor:0.2.0"
     volumes:
       - ${DATA_DIR}:/monitor/data
       - ${CONFIG_DIR}:/monitor/config
       - ${LOGS_DIR}:/monitor/logs
     environment:
+      - JOB_TITLE=Network-Monitor
       - MAIL_HOST=${MAIL_HOST}
       - MAIL_USER=${MAIL_USER}
       - MAIL_PASSWORD=${MAIL_PASSWORD}
       - MAIL_FROM=${MAIL_FROM}
       - MAIL_TO=${MAIL_TO}
       - TZ=Europe/Berlin
+      - SLEEPTIME=3
     ports:
       - 48080:80
     restart: always

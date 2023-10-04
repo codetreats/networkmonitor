@@ -22,6 +22,12 @@ namespace ServerMonitor
             writeLog(debugLog, tag, text);
         }
 
+        public static void i(string tag, string text)
+        {
+            Console.WriteLine(tag + " (INFO): " + text);
+            writeLog(debugLog, tag, text);
+        }
+
         public static void e(string tag, string text)
         {
             Console.WriteLine(tag + " (ERROR): " + text);

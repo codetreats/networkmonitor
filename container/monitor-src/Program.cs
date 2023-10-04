@@ -51,7 +51,7 @@ namespace ServerMonitor
             Monitor monitor = new Monitor(dataDir, confDir, mailDir, htmlDir, logDir);
             monitor.run();
 
-            Log.d("Program", "Fertig");
+            Log.i("Program", "Fertig");
 
 
             if (DEBUG)

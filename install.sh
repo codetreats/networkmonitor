@@ -46,6 +46,6 @@ docker image prune -f
 # build image
 cd $BASEDIR/container
 chmod +x start.sh
-docker build -t networkmonitor:0.1.0 .
+docker build -t networkmonitor:0.2.0 .
 
 docker-compose up --detach
