@@ -15,9 +15,6 @@ function update($src,$val,$level) {
     fwrite($fp,$level . "\n");
     fwrite($fp,$val . "\n");
     fclose($fp);
-
-    $file = fopen('/var/www/html/pipeline/trigger/trigger.flag', 'w');
-    fclose($file);
   } else {
     die("Invalid");
   }

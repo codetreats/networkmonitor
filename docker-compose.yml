@@ -15,7 +15,6 @@ services:
       - MAIL_FROM=${MAIL_FROM}
       - MAIL_TO=${MAIL_TO}
       - TZ=Europe/Berlin
-      - SLEEPTIME=3
     ports:
       - 48080:80
     restart: always
