@@ -1,19 +1,26 @@
 version: '3'
 services:
   networkmonitor:
+    hostname: networkmonitor
     container_name: "networkmonitor"
-    image: "networkmonitor:0.2.0"
+    image: "networkmonitor:master"
     volumes:
-      - ${DATA_DIR}:/monitor/data
-      - ${CONFIG_DIR}:/monitor/config
-      - ${LOGS_DIR}:/monitor/logs
+      - ${DATA_DIR}:/var/www/html/data/data
+      - ${CONFIG_DIR}:/var/www/html/data/config
+      - ${LOGS_DIR}:/var/www/html/data/logs
     environment:
-      - JOB_TITLE=Network-Monitor
+      - HOST_HOSTNAME=${HOST_HOSTNAME}
+      - MONITOR_HOST=${MONITOR_HOST}
+      - MONITOR_UPDATE=${MONITOR_UPDATE}
+      - MONITOR_URL=${MONITOR_URL}
+      - MONITOR_SECRET=${MONITOR_SECRET}
+      - MONITOR_SRC=${MONITOR_SRC}
       - MAIL_HOST=${MAIL_HOST}
       - MAIL_USER=${MAIL_USER}
       - MAIL_PASSWORD=${MAIL_PASSWORD}
       - MAIL_FROM=${MAIL_FROM}
       - MAIL_TO=${MAIL_TO}
+      - JOB_TITLE=Network-Monitor
       - TZ=Europe/Berlin
     ports:
       - 48080:80

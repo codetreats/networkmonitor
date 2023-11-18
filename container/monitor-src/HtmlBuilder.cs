@@ -133,10 +133,10 @@ namespace ServerMonitor
 
         private void writeHtml(string htmlDir)
         {
-            string title = "Netzwerk-Monitor - " + name;
+            string title = "Monitor - " + name;
             if (isRoot)
             {
-                title = "Netzwerk-Monitor";
+                title = "Monitor";
             }
 
             append("<!doctype html>");
@@ -164,12 +164,11 @@ namespace ServerMonitor
             }
             append("  </head>");
             append("  <body style='background-image:url(bg.jpg)'>");
+            append("      <a href='pipeline/index.html'><img style='transform: rotate(45deg);' src='back.png' alt='Pipeline'></a>", 0);
             if (!isRoot)
             {
-                append("<a href='index.html'><img src='home.png' alt='Home'></a>", 0);
-                append("<a href='" + parent + ".html'><img src='back.png' alt='Zurueck'></a>", 0);
-            } else {
-                append("<a href='pipeline/index.html'><img src='home.png' alt='Pipeline'></a>", 0);
+                append("      <a href='index.html'><img src='home.png' alt='Home'></a>", 0);
+                append("      <a href='" + parent + ".html'><img src='back.png' alt='Zurueck'></a>", 0);
             }
             
             append("<a href='" + name + ".html'><h1>" + title + "</h1></a>", 0);

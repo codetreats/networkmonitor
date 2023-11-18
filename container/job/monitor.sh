@@ -1,15 +1,17 @@
 #!/bin/bash
 set -e
 ##############################################################
-LOCAL=/monitor
+LOCAL=/var/www/html/data
 DATADIR=$LOCAL/data/
 CONFDIR=$LOCAL/config/
-LOGDIR=/monitor/logs
+LOGDIR=$LOCAL/logs
 HTML=/var/www/html
 mkdir -p $LOGDIR
 mkdir -p $HTML
 
 ###################### Create default-configurations ########
+chown -R www-data:www-data $LOCAL
+chmod -R 777 $LOCAL
 LEN=${#DATADIR}
 for F in $(find $DATADIR -name "*.txt")
 do

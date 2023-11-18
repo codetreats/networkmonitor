@@ -3,7 +3,7 @@
 require_once("timezone.inc.php");
 
 function update($src,$val,$level) {
-  $rootdir = "/monitor/data";
+  $rootdir = "/var/www/html/data/data";
   $date = new DateTime();
   $time = $date->format('Y-m-d H:i:s');
   $src_regex = '/^[A-Za-z0-9][-_A-Za-z0-9]*[A-Za-z0-9](\.[A-Za-z0-9][-_A-Za-z0-9]*[A-Za-z0-9]+)*$/';
