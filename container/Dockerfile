@@ -8,8 +8,8 @@ COPY pipeline/ /pipeline/src
 COPY job/ /job
 COPY default.cfg /var/www/html/data/
 RUN rm /var/www/html/index.html
-RUN echo "MONITOR=>/index.html" >> /var/www/html/pipeline/menu.txt
-RUN echo "DATA=>/data/index.php" >> /var/www/html/pipeline/menu.txt
-RUN echo "*/15 * * * * root /trigger.sh" > /etc/cron.d/cronjob
+RUN bash menu "MONITOR" "/index.html"
+RUN bash menu "MONITOR" "/data/index.php"
+RUN crontrigger "*/15 * * * *"
 CMD ["/start.sh"]
 

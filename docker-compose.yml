@@ -21,6 +21,7 @@ services:
       - MAIL_FROM=${MAIL_FROM}
       - MAIL_TO=${MAIL_TO}
       - JOB_TITLE=Network-Monitor
+      - PIPELINE_FAIL_MONITOR_LEVEL=5
       - TZ=Europe/Berlin
     ports:
       - 48080:80

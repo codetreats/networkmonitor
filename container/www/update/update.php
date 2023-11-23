@@ -16,7 +16,7 @@ $val = $_GET["val"];
 $level = $_GET["level"];
 $secret = $_GET["secret"];
 
-if ($secret == $pwd) {
+if ($secret == $pwd && $src != "none") {
   update($src,$val,$level);
 }
 

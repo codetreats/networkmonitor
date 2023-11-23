@@ -77,14 +77,22 @@ namespace ServerMonitor
                 }
             }
 
-            string prefix;
-            if (evil == 0)
+            string prefix = "Alles gut: ";
+            if (informationCounter > 0)
             {
-                prefix = "Alles gut: ";
+                prefix = "INFO: ";
             }
-            else
+            if (warningCounter > 0)
             {
-                prefix = "Achtung: ";
+                prefix = "WARNING: ";
+            }
+            if (errorCounter > 0)
+            {
+                prefix = "ERROR: ";
+            }
+            if (criticalCounter > 0)
+            {
+                prefix = "CRITICAL: ";
             }
 
             string subject = prefix + evil + " Problem(e)";
