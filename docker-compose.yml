@@ -20,6 +20,9 @@ services:
       - MAIL_PASSWORD=${MAIL_PASSWORD}
       - MAIL_FROM=${MAIL_FROM}
       - MAIL_TO=${MAIL_TO}
+      - HOST_URL=http://${HOST_HOSTNAME}:48080
+      - MAIL_LEVEL_OK=OFF 
+      - MAIL_LEVEL_FAIL=LINK
       - JOB_TITLE=Network-Monitor
       - PIPELINE_FAIL_MONITOR_LEVEL=5
       - TZ=Europe/Berlin

@@ -9,7 +9,7 @@ COPY job/ /job
 COPY default.cfg /var/www/html/data/
 RUN rm /var/www/html/index.html
 RUN bash menu "MONITOR" "/index.html"
-RUN bash menu "MONITOR" "/data/index.php"
+RUN bash menu "DATA" "/data/index.php"
 RUN crontrigger "*/15 * * * *"
 CMD ["/start.sh"]
 

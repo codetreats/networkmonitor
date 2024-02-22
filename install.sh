@@ -1,6 +1,6 @@
 #!/bin/bash
 source $CODETREATS_BASHUTILS_DIR/docker-utils.sh
-export MONITOR_SRC=pipeline.codetreats.networkmonitor
+export MONITOR_SRC=pipeline.$ORGANISATION.$REPO
 
 remove_container networkmonitor
 prune_images
