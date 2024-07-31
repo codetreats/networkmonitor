@@ -45,6 +45,6 @@ echo "" >> $LOCAL/status.txt
 cat $LOCAL/mail/message.txt >> $LOCAL/status.txt
 
 echo "Send Mail: $SUBJECT"
-/usr/bin/php /pipeline/src/mail.php "$SUBJECT" "$TEXT"
+/usr/bin/php /mail.php "$SUBJECT" "$TEXT"
 
 echo "Done"
