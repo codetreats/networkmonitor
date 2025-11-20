@@ -1,13 +1,8 @@
-version: '3'
 services:
   networkmonitor:
     hostname: networkmonitor
     container_name: "networkmonitor"
     image: "networkmonitor:master"
-    volumes:
-      - ${DATA_DIR}:/var/www/html/data/data
-      - ${CONFIG_DIR}:/var/www/html/data/config
-      - ${LOGS_DIR}:/var/www/html/data/logs
     environment:
       - HOST_HOSTNAME=${HOST_HOSTNAME}
       - MONITOR_HOST=${MONITOR_HOST}
@@ -20,7 +15,7 @@ services:
       - MAIL_PASSWORD=${MAIL_PASSWORD}
       - MAIL_FROM=${MAIL_FROM}
       - MAIL_TO=${MAIL_TO}
-      - HOST_URL=http://${HOST_HOSTNAME}:48080
+      - HOST_URL=https://${HOST_HOSTNAME}:4443
       - MAIL_LEVEL_OK=OFF 
       - MAIL_LEVEL_FAIL=LINK
       - JOB_TITLE=Network-Monitor
@@ -28,4 +23,10 @@ services:
       - TZ=Europe/Berlin
     ports:
       - 48080:80
+      - 4443:443
+    volumes:
+      - /media/nas/docker/common/apache:/apache:ro
+      - ${DATA_DIR}:/var/www/html/data/data
+      - ${CONFIG_DIR}:/var/www/html/data/config
+      - ${LOGS_DIR}:/var/www/html/data/logs
     restart: always
